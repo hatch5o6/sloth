@@ -35,9 +35,10 @@ def log_function_call(f):
         return result
     return wrapper
 
-def create_directory(d):
-    if os.path.exists(d):
-        print(f"DELETING: {d}")
-        shutil.rmtree(d)
+def create_directory(d, destroy=True):
+    if destroy:
+        if os.path.exists(d):
+            print(f"DELETING: {d}")
+            shutil.rmtree(d)
     print(f"CREATING: {d}")
         os.makedirs(d, exist_ok=True)
