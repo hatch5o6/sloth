@@ -1,7 +1,23 @@
+[build-system]
+requires = ["uv_build >= 0.10.7, <0.11.0"]
+build-backend = "uv_build"
+
 [project]
-name = "sloth"
-version = "0.1.0"
-description = "Add your description here"
+name = "sloth-hatch"
+version = "0.2.0"
+authors = [
+  { name="Brendan Hatch", email="thebrendanhatch@gmail.com" },
+]
+description = "A package of basic functions because I'm lazy."
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+dependencies = [
+    "build>=1.4.0",
+    "twine>=6.2.0",
+]
