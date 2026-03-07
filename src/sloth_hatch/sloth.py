@@ -6,9 +6,6 @@ import functools
 import inspect
 from argparse import Namespace
 
-#TODO print args for get_args() functions
-#TODO print module name when called
-
 def read_lines(f):
     with open(f) as inf:
         lines = [l.rstrip() for l in inf.readlines()]
@@ -78,13 +75,14 @@ def read_lines_from_path_args(f):
         return result
     return wrapper
 
-def log_module_name(package, module):
-    module = f"{module}.py"
+def log_python_script(package, name):
+    name = name.split("/")[-1]
+    name = f"{name}.py"
     if package and package.strip() != "":
-        module = f"{package}.{module}"
-    module = f"## {module} ##"
-    border = "#" * len(module)
-    print("\n".join([border, module, border]))
+        name = f"{package}.{name}"
+    name = f"## {name} ##"
+    border = "#" * len(name)
+    print("\n".join([border, name, border]))
 
 def log_parsed_args(f):
     def wrapper():
